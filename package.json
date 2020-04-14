@@ -1,0 +1,47 @@
+{
+  "name": "poc-pact-members-web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf .nuxt dist",
+    "setup": "yarn install",
+    "dev": "nuxt-ts",
+    "start": "nuxt-ts start",
+    "build": "nuxt-ts build",
+    "deploy": ": skip deploy",
+    "lint": "eslint ./src --ext .ts",
+    "lint:fix": "eslint ./src --fix --ext .ts",
+    "test": "jest --coverage --config test/jest.config.js"
+  },
+  "dependencies": {
+    "dayjs": "^1.8.24",
+    "nuxt": "^2.12.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.9.0",
+    "@nuxt/typescript-build": "^0.6.5",
+    "@nuxt/typescript-runtime": "^0.4.5",
+    "@nuxtjs/axios": "^5.9.7",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/vuetify": "^1.11.0",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.11.1",
+    "@types/sinon": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "@vue/test-utils": "^1.0.0-beta.33",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^25.3.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "flush-promises": "^1.0.2",
+    "jest": "^25.3.0",
+    "rimraf": "^3.0.2",
+    "sinon": "^9.0.2",
+    "ts-jest": "^25.3.1",
+    "typescript": "^3.8.3",
+    "vue-jest": "^3.0.5"
+  }
+}
