@@ -1,48 +1,82 @@
 <template>
   <v-card
     class="ma-3 px-3"
+    outlined
   >
     <v-card-title>
       会員登録
     </v-card-title>
+
+    <v-divider />
+
     <v-card-text>
-      <v-text-field
-        v-model="userId"
-        class="userid-field"
-        label="ユーザーID"
-      />
-      <v-text-field
-        v-model="nickname"
-        class="userid-field"
-        label="ニックネーム"
-      />
+      <v-row>
+        <v-col cols="3">
+          <v-subheader>ユーザーID</v-subheader>
+        </v-col>
+        <v-col cols="9">
+          <v-text-field
+            v-model="userId"
+            placeholder=""
+            outlined
+          />
+        </v-col>
+      </v-row>
 
-      <div class="my-3">
-        <header>性別</header>
-        <v-select
-          v-model="gender"
-          :items="genders"
-          label="性別を選択してください"
-          solo
-        />
-      </div>
+      <v-row>
+        <v-col cols="3">
+          <v-subheader>ニックネーム</v-subheader>
+        </v-col>
+        <v-col cols="9">
+          <v-text-field
+            v-model="nickname"
+            placeholder=""
+            outlined
+          />
+        </v-col>
+      </v-row>
 
-      <div class="my-3">
-        <header>年代</header>
-        <v-select
-          v-model="ageGroup"
-          :items="ageGroups"
-          label="年代を選択してください"
-          solo
-        />
-      </div>
-      <v-checkbox
-        v-model="tosAgreed"
-        label="利用規約に同意します"
-      />
+      <v-row>
+        <v-col cols="3">
+          <v-subheader>性別</v-subheader>
+        </v-col>
+        <v-col cols="9">
+          <v-select
+            v-model="gender"
+            :items="genders"
+            label="性別を選択してください"
+            solo
+          />
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col cols="3">
+          <v-subheader>年代</v-subheader>
+        </v-col>
+        <v-col cols="9">
+          <v-select
+            v-model="ageGroup"
+            :items="ageGroups"
+            label="年代を選択してください"
+            solo
+          />
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col cols="12">
+          <v-checkbox
+            v-model="tosAgreed"
+            class="mx-3"
+            label="利用規約に同意します"
+          />
+        </v-col>
+      </v-row>
+
       <error-message-card
         v-if="errorMessageCard"
-        class="my-3"
+        class="mb-3"
       />
     </v-card-text>
 
@@ -56,7 +90,10 @@
         Submit
       </v-btn>
       <v-spacer />
-      <v-btn text>
+      <v-btn
+        text
+        @click="cancel"
+      >
         Cancel
       </v-btn>
     </v-card-actions>
@@ -146,6 +183,9 @@ export default Vue.extend({
         const { status, message } = err
         this.$store.commit(Mutations.SHOW_ERROR_MESSAGE_CARD, { message: `${message} (${status})` })
       }).finally(() => this.isLoading = false)
+    },
+    cancel() {
+      this.$store.commit(Mutations.CLEAR_REGISTRATION_FORM)
     }
   }
 })

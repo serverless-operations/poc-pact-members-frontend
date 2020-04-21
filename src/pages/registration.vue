@@ -2,13 +2,6 @@
   <v-row
     justify="center"
   >
-    <v-col cols="12">
-      <v-row justify="center">
-        <p class="display-2">
-          Members
-        </p>
-      </v-row>
-    </v-col>
     <v-col
       sm="12"
       md="10"
