@@ -12,7 +12,8 @@
     "deploy-dev": "sls deploy --config deploy/serverless.yml --stage dev --region us-west-2",
     "lint": "eslint ./src --ext .ts",
     "lint:fix": "eslint ./src --fix --ext .ts",
-    "test": "jest --coverage --config test/jest.config.js"
+    "test": "jest --coverage --config test/jest.config.js",
+    "test:publish": "ts-node test/publish.ts"
   },
   "dependencies": {
     "dayjs": "^1.8.24",
