@@ -1,4 +1,3 @@
-import * as TestUtils from '@vue/test-utils'
 import path from 'path'
 
 import { Pact } from '@pact-foundation/pact'
@@ -35,9 +34,6 @@ describe('Registration test', () => {
   const membersAPIClient = new MembersAPIClient({ env: { MEMBERS_API_BASE_URL }} as unknown as Context)
 
   beforeAll(async () => {
-    console.log('@@', 'in beforeAll')
-    TestUtils.config.silent = true
-
     await provider
     // (2) Start the mock server
     .setup()

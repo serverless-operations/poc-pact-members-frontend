@@ -1,9 +1,11 @@
+const TEST_TYPE = 'units'
+
 const babelConfig = {
   plugins: [
     '@babel/plugin-proposal-optional-chaining',
     '@babel/plugin-transform-modules-commonjs'
   ]
-};
+}
 
 module.exports = {
   preset: 'ts-jest',
@@ -12,6 +14,10 @@ module.exports = {
     'vue-jest': { babelConfig }
   },
   rootDir: '../',
+  coverageDirectory: `.coverage/${TEST_TYPE}`,
+  testMatch: [
+    `<rootDir>/test/${TEST_TYPE}/**/*.test.ts`
+  ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^~/(.*)$': '<rootDir>/src/$1',
@@ -34,4 +40,4 @@ module.exports = {
     '<rootDir>/src/pages/**/*.vue',
     '<rootDir>/src/layouts/**/*.vue'
  ]
-};
+}

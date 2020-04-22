@@ -9,10 +9,12 @@
     "dev": "nuxt-ts",
     "start": "nuxt-ts start",
     "build": "nuxt-ts build",
-    "deploy-dev": "sls deploy --config deploy/serverless.yml --stage dev --region us-west-2",
+    "deploy:dev": "sls deploy --config deploy/serverless.yml --stage dev --region us-west-2",
     "lint": "eslint ./src --ext .ts",
     "lint:fix": "eslint ./src --fix --ext .ts",
-    "test": "jest --coverage --config test/jest.config.js",
+    "test:units": "jest --coverage --config test/jest.config.units.js",
+    "test:integrations": "jest --coverage --config test/jest.config.integrations.js",
+    "test:pact": "jest --coverage --config test/jest.config.pact.js",
     "test:publish": "ts-node test/publish.ts"
   },
   "dependencies": {

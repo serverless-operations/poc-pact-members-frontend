@@ -1,15 +1,19 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const pact = require('@pact-foundation/pact-node')
 const path = require('path')
+const pkg = require('../package.json')
 const dotenv = require('dotenv')
 dotenv.config()
 
+const PACT_BROKER_ENDPOINT = process.env.PACT_BROKER_ENDPOINT
+const PACT_BROKER_TOKEN = process.env.PACT_BROKER_TOKEN
+
 const opts = {
   pactFilesOrDirs: [ path.resolve(process.cwd(), '.pacts/pactFiles') ],
-  pactBroker: 'https://poc-lop.pact.dius.com.au',
-  pactBrokerToken: process.env.PACT_BROKER_TOKEN,
+  pactBroker: PACT_BROKER_ENDPOINT,
+  pactBrokerToken: PACT_BROKER_TOKEN,
   tags: [ 'latest' ],
-  consumerVersion: '0.0.0'
+  consumerVersion: pkg.version
 }
 
 pact
@@ -17,7 +21,7 @@ pact
   .then(() => {
     console.log('Pact contract publishing complete!')
     console.log('')
-    console.log('Head over to https://poc-lop.pact.dius.com.au/ and login')
+    console.log(`Head over to ${PACT_BROKER_ENDPOINT} and login`)
     console.log('to see your published contracts.')
   })
   .catch((e: Error) => {
