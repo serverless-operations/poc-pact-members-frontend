@@ -2,7 +2,7 @@
 Sample web application for spiking Pact contract testing
 
 ## Pact テストのデモ実行手順
-Consumer 側 Web アプリのテストを実行して Pact ファイルを生成、ブローカーへアップロードします。
+Consumer 側 Web アプリのテストを実行して Pact ファイルを生成、ブローカーへ送信します。
 
 ### 実行環境
 - Node.js `v12.13.0` 以上
@@ -21,7 +21,7 @@ PACT_BROKER_ENDPOINT=
 PACT_BROKER_TOKEN=
 ```
 
-### Pact テストの実行
+### Consumer テストの実行
 ```shell
 yarn test:pact
 ```
@@ -30,4 +30,3 @@ yarn test:pact
 ```shell
 yarn test:publish
 ```
-
