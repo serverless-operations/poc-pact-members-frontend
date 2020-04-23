@@ -14,7 +14,7 @@ describe('Registration test', () => {
 
   // (1) Create the Pact object to represent your provider
   const provider = new Pact({
-    consumer: 'poc-pact-members-web',
+    consumer: 'poc-pact-members-web-registration',
     provider: 'poc-pact-members-api',
     port: 3001,
     logLevel: 'info',
@@ -42,7 +42,7 @@ describe('Registration test', () => {
       provider.addInteraction({
         // The 'state' field specifies a 'Provider State'
         state: 'Registered (saved) member record',
-        uponReceiving: 'Registratikon request',
+        uponReceiving: 'Registration request',
         withRequest: {
           method: 'POST',
           path: '/registration',

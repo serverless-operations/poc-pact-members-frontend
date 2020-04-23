@@ -32,9 +32,6 @@ custom:
           build:
             commands:
               - yarn build
-          test:
-            commands:
-              - yarn test
         artifacts:
           baseDirectory: dist
           files:
