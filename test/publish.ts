@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const pact = require('@pact-foundation/pact-node')
 const path = require('path')
-const pkg = require('../package.json')
+// const pkg = require('../package.json')
 const dotenv = require('dotenv')
 dotenv.config()
 
@@ -12,8 +12,8 @@ const opts = {
   pactFilesOrDirs: [ path.resolve(process.cwd(), '.pacts/pactFiles') ],
   pactBroker: PACT_BROKER_ENDPOINT,
   pactBrokerToken: PACT_BROKER_TOKEN,
-  tags: [ 'latest' ],
-  consumerVersion: pkg.version
+  tags: [ 'master' ],
+  consumerVersion: 'consumer-0.0.0'
 }
 
 pact

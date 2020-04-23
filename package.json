@@ -14,7 +14,7 @@
     "lint:fix": "eslint ./src --fix --ext .ts",
     "test:units": "jest --coverage --config test/jest.config.units.js",
     "test:integrations": "jest --coverage --config test/jest.config.integrations.js",
-    "test:pact": "jest --coverage --config test/jest.config.pact.js",
+    "test:pact": "rm -rf .pacts && jest --coverage --config test/jest.config.pact.js",
     "test:publish": "ts-node test/publish.ts"
   },
   "dependencies": {
