@@ -14,7 +14,7 @@ module.exports = {
     'vue-jest': { babelConfig }
   },
   rootDir: '../',
-  testTimeout: 10000,
+  testTimeout: 30000,
   coverageDirectory: `.coverage/${TEST_TYPE}`,
   testMatch: [
     `<rootDir>/test/${TEST_TYPE}/**/*.test.ts`
