@@ -6,6 +6,16 @@ declare module 'members-api' {
     ageGroup: string | null;
     tosAgreed: boolean;
   }
+  export interface AsyncDownloadRequest {
+    asyncRequestId: string;
+  }
+  export interface AsyncRequestStatus {
+    requestId: string;
+    status: string;
+    data: {
+      downloadUrl? : string;
+    };
+  }
   export interface ErrorResponse {
     error: string;
     message: string;

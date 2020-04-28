@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosError, AxiosRequestConfig } from 'axios'
 import { Context } from '@nuxt/types/app';
-import { RegistrationForm, ErrorResponse } from 'members-api'
+import { RegistrationForm, AsyncDownloadRequest, AsyncRequestStatus, ErrorResponse } from 'members-api'
 
 export interface APIErrorResult {
   status: number;
@@ -13,12 +13,21 @@ export class MembersAPIClient {
 
   constructor(ctx: Context) {
     this.client = axios.create({
-      baseURL: ctx.env.MEMBERS_API_BASE_URL
+      baseURL: ctx.env.MEMBERS_API_BASE_URL,
+      maxRedirects: 0
     })
   }
 
   public async register(form: RegistrationForm): Promise<RegistrationForm> {
     return await this.request({ method: 'POST', url: '/registration', data: form })
+  }
+
+  public async asyncDownloadMembers(): Promise<AsyncDownloadRequest> {
+    return await this.request({ method: 'POST', url: '/async/download_members', data: {} })
+  }
+
+  public async pollingAsyncRequestStatus(asyncRequestId: string): Promise<AsyncRequestStatus> {
+    return await this.request<AsyncRequestStatus>({ method: 'GET', url: `/async/status/${asyncRequestId}` })
   }
 
   public async request<T>(config: AxiosRequestConfig = {}): Promise<T> {
@@ -27,6 +36,8 @@ export class MembersAPIClient {
 
     switch (response.status) {
       case 200:
+      case 202:
+      case 302:
         return response.data
       case 400:
         return Promise.reject({

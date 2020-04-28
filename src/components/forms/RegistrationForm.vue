@@ -87,14 +87,14 @@
         text
         @click="submit"
       >
-        Submit
+        登録
       </v-btn>
       <v-spacer />
       <v-btn
         text
         @click="cancel"
       >
-        Cancel
+        キャンセル
       </v-btn>
     </v-card-actions>
     <v-overlay
