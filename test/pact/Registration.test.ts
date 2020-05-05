@@ -1,7 +1,7 @@
 import path from 'path'
 
 import { Pact } from '@pact-foundation/pact'
-import { pactWith, PactOptions } from 'jest-pact'
+import { pactWith, JestPactOptions } from 'jest-pact'
 import { Context } from '@nuxt/types/app'
 
 import fixture from '~/fixture'
@@ -14,7 +14,7 @@ pactWith({
     log: path.resolve(process.cwd(), '.pacts/logs', 'pact.log'),
     dir: path.resolve(process.cwd(), '.pacts/pactFiles'),
     cors: true
-} as PactOptions, (provider: Pact) => {
+} as JestPactOptions, (provider: Pact) => {
 
   let membersAPIClient: MembersAPIClient;
 
