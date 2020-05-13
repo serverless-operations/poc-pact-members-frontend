@@ -20,6 +20,14 @@ export default (): State => ({
       ageGroup: null,
       tosAgreed: false
     }
+  },
+  myPageData: {
+    userId: null,
+    nickname: null,
+    gender: null,
+    ageGroup: null,
+    tosAgreed: false,
+    rank: null
   }
 })
 
@@ -34,16 +42,26 @@ export type State = {
     enabled: boolean;
     data: RegistrationForm;
   };
+  myPageData: MyPageData;
 }
 
 export type ErrorMessageCard = {
   message: string;
 }
 
-export type RegistrationForm = {
+export interface RegistrationForm {
   userId: string | null;
   nickname: string | null;
   gender: string | null;
   ageGroup: string | null;
+  tosAgreed: boolean;
+}
+
+export interface MyPageData extends RegistrationForm {
+  userId: string | null;
+  nickname: string | null;
+  gender: string | null;
+  ageGroup: string | null;
+  rank: string| null;
   tosAgreed: boolean;
 }

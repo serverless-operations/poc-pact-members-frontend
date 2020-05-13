@@ -6,6 +6,14 @@ declare module 'members-api' {
     ageGroup: string | null;
     tosAgreed: boolean;
   }
+  export interface Member {
+    userId: string;
+    nickname: string;
+    gender: string;
+    ageGroup: string;
+    rank: string;
+    tosAgreed: boolean;
+  }
   export interface AsyncDownloadRequest {
     asyncRequestId: string;
   }

@@ -18,6 +18,10 @@ export class MembersAPIClient {
     })
   }
 
+  public async login(userId: string): Promise<{}> {
+    return await this.request({ method: 'GET', url: `/members/${userId}` })
+  }
+
   public async register(form: RegistrationForm): Promise<RegistrationForm> {
     return await this.request({ method: 'POST', url: '/registration', data: form })
   }
@@ -46,6 +50,7 @@ export class MembersAPIClient {
         });
       case 401:
       case 403:
+      case 404:
       case 500:
         return Promise.reject({
           status: response.status,

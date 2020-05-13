@@ -6,6 +6,7 @@ export const Getters = {
   REGISTRATION_RESULT_DIALOG_DATA: 'REGISTRATION_RESULT_DIALOG_DATA',
   REGISTRATION_FORM: 'REGISTRATION_FORM',
   REGISTRATION_RESULT_DIALOG_ENABLED: 'REGISTRATION_RESULT_DIALOG_ENABLED',
+  MY_PAGE_DATA: 'MY_PAGE_DATA',
   ERROR_MESSAGE_CARD: 'ERROR_MESSAGE_CARD'
 }
 
@@ -30,6 +31,9 @@ export default {
       gender: genderOption.text,
       ageGroup: ageGroupOption.text
     }
+  },
+  [Getters.MY_PAGE_DATA] (state: State) {
+    return state.myPageData
   },
   [Getters.ERROR_MESSAGE_CARD] (state: State) {
     return state.errorMessageCard

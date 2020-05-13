@@ -46,6 +46,52 @@
           </v-card-actions>
         </v-card>
       </v-col>
+      <v-col sm="6">
+        <v-card
+          outlined
+          min-width="300"
+        >
+          <v-card-text class="text-center">
+            ログイン
+          </v-card-text>
+          <v-divider />
+
+          <v-card-actions>
+            <v-spacer />
+            <v-btn
+              color="primary"
+              text
+              @click="toLoginPage"
+            >
+              サンプルページへ移動
+            </v-btn>
+            <v-spacer />
+          </v-card-actions>
+        </v-card>
+      </v-col>
+      <!-- <v-col sm="6">
+        <v-card
+          outlined
+          min-width="300"
+        >
+          <v-card-text class="text-center">
+            マイページ
+          </v-card-text>
+          <v-divider />
+
+          <v-card-actions>
+            <v-spacer />
+            <v-btn
+              color="primary"
+              text
+              @click="toMyPage"
+            >
+              サンプルページへ移動
+            </v-btn>
+            <v-spacer />
+          </v-card-actions>
+        </v-card>
+      </v-col> -->
     </v-row>
   </div>
 </template>
@@ -62,6 +108,12 @@ export default Vue.extend({
     },
     toDownloadPage() {
       this.$router.push({ path: '/download' })
+    },
+    toLoginPage() {
+      this.$router.push({ path: '/login' })
+    },
+    toMyPage() {
+      this.$router.push({ path: '/mypage' })
     }
   }
 })

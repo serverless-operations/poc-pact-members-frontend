@@ -1,4 +1,4 @@
-import { State, ErrorMessageCard, RegistrationForm } from '~/store/state'
+import { State, ErrorMessageCard, RegistrationForm, MyPageData } from '~/store/state'
 
 export const Mutations = {
   SHOW_ERROR_MESSAGE_CARD: 'SHOW_ERROR_MESSAGE_CARD',
@@ -11,6 +11,7 @@ export const Mutations = {
   CLEAR_REGISTRATION_FORM: 'CLEAR_REGISTRATION_FORM',
 
   UPDATE_REGISTRATION_RESULT_DIALOG_DATA: 'UPDATE_REGISTRATION_RESULT_DIALOG_DATA',
+  UPDATE_MYPAGE_DATA: 'UPDATE_MYPAGE_DATA'
 }
 
 export default {
@@ -42,4 +43,7 @@ export default {
   [Mutations.UPDATE_REGISTRATION_RESULT_DIALOG_DATA] (state: State, payload: RegistrationForm) {
     state.registrationResultDialog.data = payload
   },
+  [Mutations.UPDATE_MYPAGE_DATA] (state: State, payload: MyPageData) {
+    state.myPageData = payload
+  }
 }
