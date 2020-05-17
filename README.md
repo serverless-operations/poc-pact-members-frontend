@@ -1,4 +1,4 @@
-# poc-pact-members-web
+# poc-pact-members-frontend
 Sample web application for spiking Pact contract testing
 
 ## Pact テストのデモ実行手順
